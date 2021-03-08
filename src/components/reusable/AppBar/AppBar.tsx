@@ -19,7 +19,7 @@ type AppBarPropsTypes = {
 };
 
 const AppBar: FC<AppBarPropsTypes> = ({ title, usersQuantity }: AppBarPropsTypes): ReactElement => (
-  <AppBarMU position="absolute" className="app-bar">
+  <AppBarMU position="fixed" className="app-bar">
     <Toolbar>
       <Typography component="h1" variant="h6" color="inherit" noWrap>
         { title }

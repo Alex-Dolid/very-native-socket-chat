@@ -1,0 +1,37 @@
+@import "./src/styles/style-guide/variables";
+
+.chat-area {
+  height: 100%;
+  padding: 64px 0 69px 0;
+
+  &__messages {
+    height: 100%;
+    margin: 0;
+    overflow-y: scroll;
+    padding: 10px 20px 10px 20px;
+  }
+
+  &__log {
+    color: $grey;
+    margin: 5px;
+    text-align: center;
+  }
+
+  &__username {
+    font-weight: 700;
+    overflow: hidden;
+    padding-right: 15px;
+    text-align: right;
+  }
+
+  &__input-group {
+    background-color: rgba($extra-black, 0.3);
+    padding: 10px;
+    width: 100%;
+
+    input {
+      background-color: transparent !important;
+      text-align: left !important;
+    }
+  }
+}
