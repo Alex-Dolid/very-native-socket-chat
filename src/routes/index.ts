@@ -20,7 +20,7 @@ const routes: routesType<routeObjType> = [
   },
   {
     id: "chat",
-    path: "/chat",
+    path: "/",
     title: "Chat",
     pageComponent: Chat,
   },

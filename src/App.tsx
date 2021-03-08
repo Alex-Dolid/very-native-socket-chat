@@ -23,7 +23,7 @@ const App: FC = () => (
           <Switch>
             {
               routes.map((route) => (
-                <Route key={ route.id } path={ route.path } component={ route.pageComponent } />
+                <Route exact key={ route.id } path={ route.path } component={ route.pageComponent } />
               ))
             }
             <Redirect from="*" to="/chat" />

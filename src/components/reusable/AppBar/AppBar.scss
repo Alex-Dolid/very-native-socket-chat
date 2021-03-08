@@ -1,0 +1,13 @@
+@import "./src/styles/style-guide/variables";
+
+.app-bar {
+  background-color: $extra-black !important;
+
+  &__badge {
+    margin-left: 10px !important;
+  }
+
+  &__exit-to-app-btn {
+    margin-left: auto !important;
+  }
+}

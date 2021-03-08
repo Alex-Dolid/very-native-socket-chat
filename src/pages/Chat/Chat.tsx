@@ -1,10 +1,14 @@
 // Core
 import React, { FC, ReactElement } from "react";
+// Components
+import { Box } from "@material-ui/core";
+// Buses
+import { ChatBus } from "bus/chat";
 
 const Chat: FC = (): ReactElement => (
-  <section className="sign-in-page">
-    <h1>Chat</h1>
-  </section>
+  <Box component="section" className="page page_chat">
+    <ChatBus />
+  </Box>
 );
 
 export default Chat;
