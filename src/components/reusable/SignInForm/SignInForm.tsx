@@ -2,21 +2,20 @@
 import React, { FC, FormEventHandler, ReactElement, useState } from "react";
 // Components
 import { TextField, Grid, Button } from "@material-ui/core";
-// Routing
-import { useHistory } from "react-router";
+// Hooks
+import { useAuth } from "bus/chat";
 // Styles
 import "./SignInForm.scss";
 
 const SignInForm: FC = (): ReactElement => {
-  const history = useHistory();
+  const { auth } = useAuth();
   const [nickname, setNickname] = useState("");
   const [required, setRequired] = useState(false);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = (e): void => {
     e.preventDefault();
     if (nickname) {
-      console.log(nickname);
-      history.push("/chat");
+      auth(nickname);
     } else {
       setRequired(true);
     }
@@ -33,7 +32,7 @@ const SignInForm: FC = (): ReactElement => {
             color="secondary"
             className="sign-in-form__text-field"
             error={!nickname && required}
-            helperText="This field is required"
+            helperText={!nickname && required ? "This field is required" : null}
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
           />
