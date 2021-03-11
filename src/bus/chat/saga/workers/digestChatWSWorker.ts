@@ -8,6 +8,7 @@ import { addUserWorker } from "./addUserWorker";
 import { sendMessageWorker } from "./sendMessageWorker";
 import { sendTypingWorker } from "./sendTypingWorker";
 import { sendStopTypingWorker } from "./sendStopTypingWorker";
+import { disconnectChatWSWorker } from "./disconnectChatWSWorker";
 
 export function* digestChatWSWorker(): SagaIterator {
   let socket;
@@ -21,6 +22,7 @@ export function* digestChatWSWorker(): SagaIterator {
     yield fork(sendMessageWorker, socket);
     yield fork(sendTypingWorker, socket);
     yield fork(sendStopTypingWorker, socket);
+    yield fork(disconnectChatWSWorker, socket);
 
     while (true) {
       const action = yield take(socketChannel);

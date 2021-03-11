@@ -13,16 +13,17 @@ import { ExitToApp as ExitToAppIcon } from "@material-ui/icons";
 import "./AppBar.scss";
 
 type AppBarPropsTypes = {
-  title: string
+  title: string,
+  signOut: () => void
 };
 
-const AppBar: FC<AppBarPropsTypes> = ({ title }: AppBarPropsTypes): ReactElement => (
+const AppBar: FC<AppBarPropsTypes> = ({ title, signOut }: AppBarPropsTypes): ReactElement => (
   <AppBarMU position="fixed" className="app-bar">
     <Toolbar>
       <Typography component="h1" variant="h6" color="inherit" noWrap>
         { title }
       </Typography>
-      <IconButton color="inherit" className="app-bar__exit-to-app-btn">
+      <IconButton color="inherit" className="app-bar__exit-to-app-btn" onClick={signOut}>
         <ExitToAppIcon />
       </IconButton>
     </Toolbar>

@@ -10,14 +10,14 @@ import { ChatState } from "../reducer";
 import { SendActionsType } from "../types";
 // Actions
 import {
-  addUserAsync,
-  connectChatWSAsync,
+  addUserAsync, clearStore,
+  connectChatWSAsync, disconnectChatWSAsync,
   sendMessageAsync,
   sendStopTypingAsync,
   sendTypingAsync
 } from "../actions";
 
- type UseStateType = ChatState & SendActionsType
+ type UseStateType = ChatState & SendActionsType & { signOut: () => void }
 
 export const useChatState = (): UseStateType => {
   const dispatch = useDispatch();
@@ -30,6 +30,10 @@ export const useChatState = (): UseStateType => {
   const sendMessage = useCallback((msg) => dispatch(sendMessageAsync(msg)), [dispatch]);
   const sendTyping = useCallback(() => dispatch(sendTypingAsync()), [dispatch]);
   const sendStopTyping = useCallback(() => dispatch(sendStopTypingAsync()), [dispatch]);
+  const signOut = useCallback(() => {
+    dispatch(disconnectChatWSAsync());
+    dispatch(clearStore());
+  }, [dispatch]);
 
   // effects
   useLayoutEffect(() => {
@@ -48,6 +52,7 @@ export const useChatState = (): UseStateType => {
     numUsers,
     friends,
     sendTyping,
-    sendStopTyping
+    sendStopTyping,
+    signOut
   };
 };

@@ -13,7 +13,9 @@ export enum ChatActionType {
   WS_SEND_TYPING = "WS_SEND_TYPING",
   WS_SEND_STOP_TYPING = "WS_SEND_STOP_TYPING",
   WS_RECEIVE_TYPING = "WS_RECEIVE_TYPING",
-  WS_RECEIVE_STOP_TYPING = "WS_RECEIVE_STOP_TYPING"
+  WS_RECEIVE_STOP_TYPING = "WS_RECEIVE_STOP_TYPING",
+  WS_DISCONNECT = "WS_DISCONNECT",
+  CLEAR_STORE = "CLEAR_STORE",
 }
 
 export type SendActionsType = {
@@ -49,6 +51,10 @@ export type ChatNewMessageActionType = {
 export type ChatSetUserNameActionType = {
   type: ChatActionType.SET_USERNAME,
   payload: string
+}
+
+export type ChatClearUserNameActionType = {
+  type: ChatActionType.CLEAR_STORE
 }
 
 export type ChatLoginActionType = {
@@ -109,6 +115,10 @@ export type ChatSendStopTypingActionType = {
   type: ChatActionType.WS_SEND_STOP_TYPING
 }
 
+export type ChatDisconnectActionType = {
+  type: ChatActionType.WS_DISCONNECT
+}
+
 export type ChatActionsTypes =
   | ChatSendMessageActionType
   | ChatNewMessageActionType
@@ -118,3 +128,4 @@ export type ChatActionsTypes =
   | ChatUserLeftActionType
   | ChatReceiveTypingActionType
   | ChatReceiveStopTypingActionType
+  | ChatClearUserNameActionType

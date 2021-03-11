@@ -56,6 +56,9 @@ export const chatReducer = produce((draft: Draft<ChatState>, action: ChatActions
       }
       return draft;
     }
+    case ChatActionType.CLEAR_STORE:
+      draft = initialState;
+      return draft;
     default: {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const x: never = action;

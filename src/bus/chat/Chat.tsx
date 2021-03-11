@@ -8,11 +8,11 @@ import { AppBar, ChatArea, FriendsMenu } from "components/reusable";
 import { useChatState } from "./hooks";
 
 const Chat: FC = (): ReactElement => {
-  const { username, sendMessage, numUsers, friends, messages, sendTyping, sendStopTyping } = useChatState();
+  const { username, sendMessage, numUsers, friends, messages, sendTyping, sendStopTyping, signOut } = useChatState();
 
   return (
     <Box component="section" className="full-height">
-      <AppBar title="Very Native Socket Chat" />
+      <AppBar title="Very Native Socket Chat" signOut={signOut} />
       <FriendsMenu usersQuantity={numUsers} friends={friends} username={username} />
       <ChatArea sendMessage={sendMessage} messages={messages} sendTyping={sendTyping} sendStopTyping={sendStopTyping} />
     </Box>
