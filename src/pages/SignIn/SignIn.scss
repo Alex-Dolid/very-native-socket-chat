@@ -1,0 +1,7 @@
+@import "./src/styles/style-guide/variables";
+
+.page {
+  &_sign-in {
+    background-color: $extra-black;
+  }
+}
