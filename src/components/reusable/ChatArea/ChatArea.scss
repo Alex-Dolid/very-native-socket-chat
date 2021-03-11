@@ -3,18 +3,35 @@
 .chat-area {
   height: 100%;
   padding: 64px 0 69px 0;
+  width: calc(100% - #{$friendsMenuWidth});
+  margin-left: $friendsMenuWidth;
 
   &__messages {
     height: 100%;
     margin: 0;
-    overflow-y: scroll;
+    overflow-y: auto;
     padding: 10px 20px 10px 20px;
+    scroll-behavior: smooth;
   }
 
   &__log {
     color: $grey;
     margin: 5px;
     text-align: center;
+    display: flex;
+    align-items: center;
+
+    .MuiDivider-root {
+      flex: 1 1 auto;
+    }
+  }
+
+  &__log-text {
+    margin: 0 15px;
+  }
+
+  &__message {
+    margin: 10px 0;
   }
 
   &__username {
@@ -27,7 +44,6 @@
   &__form {
     background-color: rgba($extra-black, 0.3);
     padding: 10px;
-    width: 100%;
 
     input {
       background-color: transparent !important;

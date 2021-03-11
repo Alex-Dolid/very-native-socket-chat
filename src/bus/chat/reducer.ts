@@ -3,7 +3,7 @@ import produce, { Draft } from "immer";
 // Types
 import { ChatActionsTypes, NewMessageType, ChatActionType } from "./types";
 
-type FriendsType = {
+export type FriendType = {
   isOnline: boolean,
   username: string,
   isTyping: boolean
@@ -12,7 +12,7 @@ export type ChatState = {
   username: string | null,
   messages: NewMessageType[],
   numUsers: number,
-  friends: FriendsType[]
+  friends: FriendType[]
 };
 
 const initialState: ChatState = {
@@ -57,10 +57,11 @@ export const chatReducer = produce((draft: Draft<ChatState>, action: ChatActions
       return draft;
     }
     default: {
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       const x: never = action;
       break;
     }
   }
 
   return draft;
-}, initialState);// Todo добавити drawer та віобразити користувачів, зробити typing
+}, initialState);

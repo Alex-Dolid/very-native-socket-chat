@@ -1,13 +1,11 @@
 @import "./src/styles/style-guide/variables";
 
-.app-bar {
-  background-color: $extra-black !important;
+.app-bar.MuiAppBar-root {
+  background-color: $extra-black;
+  width: calc(100% - #{$friendsMenuWidth});
+  margin-left: $friendsMenuWidth;
 
-  &__badge {
-    margin-left: 10px !important;
-  }
-
-  &__exit-to-app-btn {
-    margin-left: auto !important;
+  .app-bar__exit-to-app-btn.MuiIconButton-root {
+    margin-left: auto;
   }
 }

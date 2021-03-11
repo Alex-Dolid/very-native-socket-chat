@@ -1,0 +1,16 @@
+@import "./src/styles/style-guide/variables";
+
+.friends-menu {
+  .MuiPaper-root {
+    width: $friendsMenuWidth;
+    flex-shrink: 0;
+  }
+
+  &__toolbar {
+    min-height: 64px;
+  }
+
+  &__list.MuiList-root {
+    overflow-y: auto;
+  }
+}

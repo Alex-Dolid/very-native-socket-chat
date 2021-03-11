@@ -1,0 +1,10 @@
+@import "./src/styles/style-guide/variables";
+
+.styled-badge {
+  &_offline {
+    .MuiBadge-badge {
+      background-color: $grey;
+      color: $grey;
+    }
+  }
+}

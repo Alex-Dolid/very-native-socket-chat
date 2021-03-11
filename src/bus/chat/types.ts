@@ -16,6 +16,12 @@ export enum ChatActionType {
   WS_RECEIVE_STOP_TYPING = "WS_RECEIVE_STOP_TYPING"
 }
 
+export type SendActionsType = {
+  sendMessage: (msg: string) => void,
+  sendTyping: () => void,
+  sendStopTyping: () => void
+}
+
 export type WSEventType =
   "typing"
   | "stop typing"

@@ -6,27 +6,22 @@ import {
   Toolbar,
   IconButton,
   Typography,
-  Badge
 } from "@material-ui/core";
 // Icons
-import { People as PeopleIcon, ExitToApp as ExitToAppIcon } from "@material-ui/icons";
+import { ExitToApp as ExitToAppIcon } from "@material-ui/icons";
 // Styles
 import "./AppBar.scss";
 
 type AppBarPropsTypes = {
-  title: string,
-  usersQuantity: number
+  title: string
 };
 
-const AppBar: FC<AppBarPropsTypes> = ({ title, usersQuantity }: AppBarPropsTypes): ReactElement => (
+const AppBar: FC<AppBarPropsTypes> = ({ title }: AppBarPropsTypes): ReactElement => (
   <AppBarMU position="fixed" className="app-bar">
     <Toolbar>
       <Typography component="h1" variant="h6" color="inherit" noWrap>
         { title }
       </Typography>
-      <Badge badgeContent={ usersQuantity } color="error" className="app-bar__badge">
-        <PeopleIcon />
-      </Badge>
       <IconButton color="inherit" className="app-bar__exit-to-app-btn">
         <ExitToAppIcon />
       </IconButton>

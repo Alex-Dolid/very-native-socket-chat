@@ -17,11 +17,12 @@ export function* digestChatWSWorker(): SagaIterator {
     socket = yield call(createWebSocketConnection);
     socketChannel = yield call(createSocketChannel, socket);
 
+    yield fork(addUserWorker, socket);
+    yield fork(sendMessageWorker, socket);
+    yield fork(sendTypingWorker, socket);
+    yield fork(sendStopTypingWorker, socket);
+
     while (true) {
-      yield fork(addUserWorker, socket);
-      yield fork(sendMessageWorker, socket);
-      yield fork(sendTypingWorker, socket);
-      yield fork(sendStopTypingWorker, socket);
       const action = yield take(socketChannel);
       yield put(action);
     }

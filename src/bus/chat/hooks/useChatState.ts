@@ -7,6 +7,7 @@ import { useHistory } from "react-router";
 // Types
 import { AppState } from "init/rootReducer";
 import { ChatState } from "../reducer";
+import { SendActionsType } from "../types";
 // Actions
 import {
   addUserAsync,
@@ -16,11 +17,7 @@ import {
   sendTypingAsync
 } from "../actions";
 
- type UseStateType = ChatState & {
-   sendMessage: (msg: string) => void,
-   sendTyping: () => void,
-   sendStopTyping: () => void
-}
+ type UseStateType = ChatState & SendActionsType
 
 export const useChatState = (): UseStateType => {
   const dispatch = useDispatch();

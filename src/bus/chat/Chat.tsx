@@ -1,18 +1,20 @@
 // Core
 import React, { FC, ReactElement } from "react";
-// Components
+// Components UI
 import { Box } from "@material-ui/core";
-import { AppBar, ChatArea } from "components/reusable";
+// Components
+import { AppBar, ChatArea, FriendsMenu } from "components/reusable";
+// Hooks
 import { useChatState } from "./hooks";
 
 const Chat: FC = (): ReactElement => {
-  const { username, sendMessage, numUsers } = useChatState();
+  const { username, sendMessage, numUsers, friends, messages, sendTyping, sendStopTyping } = useChatState();
 
-  console.log(username);
   return (
     <Box component="section" className="full-height">
-      <AppBar title="Very Native Socket Chat" usersQuantity={numUsers} />
-      <ChatArea sendMessage={sendMessage} />
+      <AppBar title="Very Native Socket Chat" />
+      <FriendsMenu usersQuantity={numUsers} friends={friends} username={username} />
+      <ChatArea sendMessage={sendMessage} messages={messages} sendTyping={sendTyping} sendStopTyping={sendStopTyping} />
     </Box>
   );
 };
