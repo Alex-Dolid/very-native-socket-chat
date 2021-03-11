@@ -6,7 +6,8 @@ import React, {
   useCallback,
   useEffect,
   useRef,
-  useState
+  useState,
+  memo
 } from "react";
 // Components UI
 import { TextField, Divider } from "@material-ui/core";
@@ -16,6 +17,7 @@ import { getHash } from "helpers";
 import { NewMessageType, SendActionsType } from "bus/chat";
 // Styles
 import "./ChatArea.scss";
+import Message from "../Message/Message";
 
 type ChatAreaPropsTypes = {
   messages: NewMessageType[]
@@ -84,14 +86,12 @@ const ChatArea: FC<ChatAreaPropsTypes> = ({ sendMessage, messages, sendTyping, s
           <span className="chat-area__log-text">Welcome</span>
           <Divider />
         </li>
-        { messages.map((_message) => (
-          <li className="chat-area__message" key={getHash(_message.message)}>
-            <span className="chat-area__username">
-              { _message.username }
-              :
-            </span>
-            <span className="chat-area__message-text">{ _message.message }</span>
-          </li>
+        { messages.map((_message, i) => (
+          <Message
+            username={_message.username}
+            message={_message.message}
+            key={getHash(i + _message.message)}
+          />
         )) }
         <div ref={messagesEndRef} />
       </ul>
@@ -109,4 +109,4 @@ const ChatArea: FC<ChatAreaPropsTypes> = ({ sendMessage, messages, sendTyping, s
   );
 };
 
-export default ChatArea; // TODO добавити мемоізацію та зарефакторити
+export default memo(ChatArea);

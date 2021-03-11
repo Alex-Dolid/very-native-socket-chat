@@ -1,8 +1,7 @@
 // Core
-import React, { FC } from "react";
+import React, { FC, Suspense } from "react";
 // Routing
-import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-dom";
-// import {  } from "react-router";
+import { BrowserRouter as Router, Redirect, Route, Switch } from "react-router-dom";
 import routes from "routes";
 // Lib Styles
 import { ThemeProvider } from "@material-ui/core/styles";
@@ -16,14 +15,21 @@ const App: FC = () => (
   <ReduxProvider store={ store }>
     <Router>
       <ThemeProvider theme={ theme }>
-        <Switch>
-          {
-            routes.map((route) => (
-              <Route exact key={ route.id } path={ route.path } component={ route.pageComponent } />
-            ))
-          }
-          <Redirect from="/*" to="/" />
-        </Switch>
+        <Suspense fallback={ <div>Loading...</div> }>
+          <Switch>
+            {
+              routes.map((route) => (
+                <Route
+                  key={ route.id }
+                  exact
+                  path={ route.path }
+                  component={ route.pageComponent }
+                />
+              ))
+            }
+            <Redirect from="/*" to="/" />
+          </Switch>
+        </Suspense>
       </ThemeProvider>
     </Router>
   </ReduxProvider>

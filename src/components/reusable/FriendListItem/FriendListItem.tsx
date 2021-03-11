@@ -1,5 +1,5 @@
 // Core
-import React, { FC, ReactElement } from "react";
+import React, { FC, ReactElement, memo } from "react";
 // Components UI
 import {
   Avatar,
@@ -34,4 +34,4 @@ const FriendListItem: FC<FriendType> = ({ username, isOnline, isTyping }: Friend
   </ListItem>
 );
 
-export default FriendListItem;
+export default memo(FriendListItem);

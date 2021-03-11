@@ -1,7 +1,5 @@
 // Core
-import { FC } from "react";
-// PagesComponents
-import { SignIn, Chat } from "pages";
+import { FC, lazy } from "react";
 
 export type routeObjType = {
   id: string;
@@ -16,13 +14,13 @@ const routes: routesType<routeObjType> = [
     id: "home",
     path: "/sign-in",
     title: "",
-    pageComponent: SignIn,
+    pageComponent: lazy(() => import(/* webpackChunkName: "signIn.page" */ "pages/SignIn/SignIn")),
   },
   {
     id: "chat",
     path: "/",
     title: "Chat",
-    pageComponent: Chat,
+    pageComponent: lazy(() => import(/* webpackChunkName: "chat.page" */ "pages/Chat/Chat")),
   },
 ];
 

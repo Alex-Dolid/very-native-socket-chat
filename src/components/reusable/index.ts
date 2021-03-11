@@ -1,7 +1,8 @@
-export { default as SignInForm } from "./SignInForm/SignInForm";
-export { default as AppBar } from "./AppBar/AppBar";
-export { default as ChatArea } from "./ChatArea/ChatArea";
-export { default as FriendsMenu } from "./FriendsMenu/FriendsMenu";
-export { default as MenuSectionTitle } from "./MenuSectionTitle/MenuSectionTitle";
-export { default as FriendListItem } from "./FriendListItem/FriendListItem";
-export { default as StyledBadge } from "./StyledBadge/StyledBadge";
+export { SignInForm } from "./SignInForm";
+export { AppBar } from "./AppBar";
+export { ChatArea } from "./ChatArea";
+export { FriendsMenu } from "./FriendsMenu";
+export { MenuSectionTitle } from "./MenuSectionTitle";
+export { FriendListItem } from "./FriendListItem";
+export { StyledBadge } from "./StyledBadge";
+export { Message } from "./Message";

@@ -1,13 +1,13 @@
 // Core
-import React, { FC, ReactElement } from "react";
-// Components
+import React, { FC, ReactElement, memo } from "react";
+// Components UI
 import {
   AppBar as AppBarMU,
   Toolbar,
   IconButton,
   Typography,
 } from "@material-ui/core";
-// Icons
+// Icons UI
 import { ExitToApp as ExitToAppIcon } from "@material-ui/icons";
 // Styles
 import "./AppBar.scss";
@@ -30,4 +30,4 @@ const AppBar: FC<AppBarPropsTypes> = ({ title, signOut }: AppBarPropsTypes): Rea
   </AppBarMU>
 );
 
-export default AppBar;
+export default memo(AppBar);

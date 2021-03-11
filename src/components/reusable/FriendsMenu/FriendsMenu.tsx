@@ -1,5 +1,5 @@
 // Core
-import React, { FC } from "react";
+import React, { FC, memo } from "react";
 // Components UI
 import { Drawer, List } from "@material-ui/core";
 // Components
@@ -28,16 +28,16 @@ const FriendsMenu: FC<FriendsMenuPropsTypes> = ({ usersQuantity, friends, userna
     </div>
     <MenuSectionTitle title="Friends" quantity={usersQuantity} />
     <List className="friends-menu__list">
-      { friends.map((friend) => (
+      { friends.map((friend, i) => (
         <FriendListItem
           username={friend.username}
           isOnline={friend.isOnline}
           isTyping={friend.isTyping}
-          key={getHash(friend.username)}
+          key={getHash(i + friend.username)}
         />
       )) }
     </List>
   </Drawer>
 );
 
-export default FriendsMenu;
+export default memo(FriendsMenu);
